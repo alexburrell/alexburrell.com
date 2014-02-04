@@ -1,0 +1,28 @@
+<html>
+	<head>
+		<title>Hi there! I'm Alex.</title>
+		{{> templates/files}}
+	</head>
+
+	<body>
+		{{> templates/nav}}
+
+		<div class="content">
+			{{#sprints}}
+			{{#iscurrent}}<p class="label uppercase centered">Current sprint</p>{{/iscurrent}}
+			{{#islastcompleted}}<p class="label uppercase centered">Past sprints</p>{{/islastcompleted}}
+			<div class="section colorize {{color}}">
+				<div class="foreground">
+					<div class="date">{{dates.start}} - {{dates.end}}</div>
+					<h2><a href="{{path}}.html">{{title}}</a></h2>
+				</div>
+				<div class="background">
+					<img src="{{path}}/background.png" />
+				</div>
+			</div>
+			{{/sprints}}
+		</div>
+
+		{{> templates/footer}}
+	</body>
+</html>

@@ -1,0 +1,98 @@
+<html>
+	<head>
+		<title>{{title}} | alexburrell.com</title>
+		{{> templates/files}}
+
+		<script>
+		$(document).ready(function() {
+			var current = $('.calendar .date.start a').attr('href').substring(1);
+			if (window.location.hash) {
+				current = window.location.hash.substring(1);
+			}
+
+			$('.progress .step').addClass('hide');
+			$('.progress .step#' + current).removeClass('hide').addClass('current');
+			$('.calendar .date.' + current).addClass('current');
+
+			$('.calendar').append('<span class="show-all link">Show all days</span>');
+			$('.show-all').click(function(event) {
+				if ($(this).hasClass('active')) {
+					$('.progress .step').addClass('hide');
+					$('.progress .step#' + current).removeClass('hide').addClass('current');
+					$('.calendar .date.' + current).removeClass('hide').addClass('current');
+					$(this).removeClass('active');
+				} else {
+					$('.progress .step.hide').removeClass('hide');
+					$('.calendar .date.current').removeClass('current');
+					$(this).addClass('active');
+				}
+			});
+
+			var clicked = function(event) {
+				current = event.target.hash.substring(1);
+				if (!$('.show-all').hasClass('active')) {
+					event.preventDefault();
+					$('.progress .step.current').removeClass('current').addClass('hide');
+					$('.progress .step#' + current).removeClass('hide').addClass('current');
+					$('.calendar .date.current').removeClass('current');
+					$('.calendar .date.' + current).addClass('current');
+					var scroll = document.body.scrollTop;
+					window.location.hash = current;
+					document.body.scrollTop = scroll;
+				}
+			}
+
+			$('.calendar .date a').click(clicked);
+			$('.progress a[title="calendar"]').click(clicked);
+		});
+		</script>
+	</head>
+
+	<body>
+		{{> templates/nav}}
+
+		<div class="content sprint-details">
+ 			<div class="header">
+				<div class="date">{{dates.start}} - {{dates.end}}</div>
+				<h2>{{title}}</h2>
+			</div>
+
+			<div class="calendar {{color}}">
+				{{#dates.daysbefore}}
+				<div class="date inline unused colorize"></div>
+				{{/dates.daysbefore}}
+
+				{{#progress}}
+				<div class="date inline colorize {{class}}{{#isstart}} start{{/isstart}}{{#isempty}} empty{{/isempty}}">
+					{{#isempty}}<div class="date-background">{{dateofmonth}}</div>{{/isempty}}
+					{{^isempty}}<a href="#{{class}}" class="date-background">{{dateofmonth}}</a>{{/isempty}}
+					<div class="test"></div>
+					<div class="date-foreground serif really-small hide-on-mobile">
+						{{#isstart}}{{^isempty}}And so we begin...{{/isempty}}{{/isstart}}
+						{{#isend}}{{^isempty}}And after all that...{{/isempty}}{{/isend}}
+						{{#ismiddle}}{{summary}}{{/ismiddle}}
+					</div>
+					<div class="date-circle inline"></div>
+				</div>
+				{{/progress}}
+
+				{{#dates.daysafter}}
+				<div class="date inline unused colorize"></div>
+				{{/dates.daysafter}}
+			</div>
+
+			<div class="progress">
+				{{#progress}}
+				{{^isempty}}
+				<div class="step{{#isstart}} start{{/isstart}}" id="{{class}}">
+					<div class="medium date-header">{{date}}</div>
+					{{{content}}}
+				</div>
+				{{/isempty}}
+				{{/progress}}
+			</div>
+		</div>
+
+		{{> templates/footer}}
+	</body>
+</html>

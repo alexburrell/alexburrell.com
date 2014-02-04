@@ -1,0 +1,363 @@
+body {
+	font-family: 'Average Sans', sans-serif;
+	margin: 10px;
+	color: #333;
+}
+
+
+/* IMAGES */
+img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+.frame {
+	display: inline-block;
+	background: url(images/frame.png) no-repeat;
+	background-size: 331px 250px;
+	padding: 25px 30px;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+	.frame {
+		background-size: 300px;
+		padding: 22px 27px;
+	}
+	.frame img { width: 240px; }
+}
+
+
+/* LINKS */
+a, .link {
+	color: #0E78AC;
+	text-decoration: none;
+}
+
+a:hover, .link:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.black-links a {
+	color: #333;
+}
+
+
+/* TEXT */
+h1, h2, h3, h4 {
+	margin: 0;
+	font-family: 'Quando', serif;
+	font-weight: normal;
+	font-size: 14px;
+}
+
+p, pre {
+	margin: 20px 0;
+	line-height: 1.4em;
+	text-align: left;
+}
+
+pre {
+	overflow: scroll;
+}
+
+.em { font-weight: bold; }
+.uppercase { text-transform: uppercase; }
+.serif { font-family: 'Quando', serif; }
+.sans-serif { font-family: 'Average Sans', sans-serif; }
+.really-small { font-size: 0.6em; }
+.small { font-size: 0.9em; }
+.medium, h2 { font-size: 1.3em; }
+.large, h1 { font-size: 1.7em; }
+.gray { color: #BBB; }
+
+
+/* LAYOUT */
+.inline {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.float-left { float: left; }
+.float-right { float: right; }
+.clearfix { clear: both; }
+
+.centered { text-align: center; }
+
+.hide { display: none; }
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+	.hide-on-mobile { display: none; }
+}
+
+
+/* LISTS */
+ul {
+	list-style: none;
+	padding: 0;
+	margin: 20px 0;
+	line-height: 1.4em;
+}
+
+li {
+	margin-bottom: 5px;
+}
+
+.with-bullets,
+.progress .step ul {
+	list-style: disc;
+	margin: 10px 10px 10px 30px;
+	text-align: left;
+}
+
+
+/* NAV */
+nav {
+	width: 240px;
+	margin-bottom: 30px;
+}
+
+.logo {
+	margin-top: 20px;
+	width: 60px;
+	display: inline;
+}
+
+.logo-fun #logo-smile {
+	width: 60px;
+	position: absolute;
+	left: 98px;
+	top: 118px;
+}
+
+.nav-links {
+	margin-top: 40px;
+}
+
+.nav-links li {
+	margin-bottom: 15px;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+	nav { width: 300px; }
+	#logo {
+		display: inline-block;
+		vertical-align: middle;
+		margin: 10px 0 0 10px;
+	}
+	#logo .logo {
+		margin: 0;
+	}
+	.nav-links {
+		display: inline-block;
+		vertical-align: middle;
+		margin: 10px 0 0 42px;
+	}
+}
+
+
+/* CONTENT */
+@media only screen and (min-device-width: 480px) {
+	.content { margin-left: 250px; }
+	.page {
+		padding: 20px 0;
+		margin-left: 280px;
+	}
+}
+
+.content .label {
+	padding: 20px 0 10px 0;
+	margin: 0;
+}
+
+.page ul,
+blockquote {
+	margin-left: 5px;
+	padding-left: 20px;
+	border-left: solid 5px #CCC;
+}
+
+.section {
+	border: solid 3px #333;
+	border-radius: 5px;
+	box-shadow: 0 1px 2px #454545;
+	padding: 20px;
+	position: relative;
+	overflow: hidden;
+	margin-bottom: 13px;
+}
+
+.section .background {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.section .background img {
+	height: 150px;
+}
+
+.section .foreground {
+	position: relative;
+	z-index: 1;
+}
+
+.sprint-details .header {
+	padding: 10px 0 20px;
+}
+
+.progress .step {
+	margin: 20px 0;
+	padding: 0 15px;
+	border-left: solid 5px #CCC;
+}
+
+
+/* FOOTER */
+.footer {}
+
+
+/* CALENDAR */
+.calendar {
+	min-width: 350px;
+}
+
+.calendar .date {
+	width: 13%;
+	height: 50px;
+	margin: 1px 0 0 -3px;
+	border: solid 2px;
+	overflow: hidden;
+	position: relative;
+}
+
+.calendar .date.unused,
+.calendar .date.empty {
+	opacity: 0.4;
+}
+
+.calendar .date.current .date-circle {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: url(images/circle.png) center center no-repeat;
+	background-size: 72px 52px;
+}
+
+.calendar .date-background {
+	height: 100%;
+	width: 100%;
+	text-align: center;
+	font-size: 75px;
+	line-height: 45px;
+	font-weight: bold;
+	text-shadow: none;
+	opacity: 0.3;
+	position: absolute;
+}
+
+.calendar div.date-background:hover {
+	cursor: default;
+}
+
+.calendar .test {
+	height: 100%;
+	width: 2px;
+	background: red;
+	display: inline-block;
+	vertical-align: middle;
+	margin-left: -7px;
+}
+
+.calendar .date-foreground {
+	text-align: center;
+	display: inline-block;
+	vertical-align: middle;
+	padding: 0 5px;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+	.calendar {
+		width: 300px;
+		min-width: 300px;
+	}
+	.calendar .date {
+		width: 38px;
+	}
+	.calendar .date-background {
+		font-size: 30px;
+	}
+	.calendar .date.current .date-background {
+		opacity: 1;
+	}
+	.calendar .date.current .date-circle {
+		background-size: 38px;
+	}
+}
+
+
+/* PAGE-SPECIFIC */
+.mini-bio {
+	text-align: center;
+}
+
+.show-all {
+	padding: 5px 10px;
+	border: solid 1px;
+	border-radius: 5px;
+	margin: 10px 0;
+	float: right;
+}
+
+@media only screen and (min-device-width: 480px) {
+	.show-all {
+		margin-right: 40px;
+	}
+}
+
+.show-all.active {
+	background: #0E78AC;
+	color: #FFF;
+}
+
+
+/* COLOR */
+.colorize,
+.colorize a {
+	color: #FFF;
+	text-shadow: 1px 1px 2px rgba(70, 70, 70, 0.7);
+}
+
+.blue .colorize-text { color: #3299BB; }
+.blue.colorize-background { background-color: #B3E1EC; }
+.blue.colorize, .blue .colorize {
+	border-color: #B3E1EC;
+	background: #3299BB;
+	background: linear-gradient(to bottom, #33AFCC, #3299BB);
+}
+.green .colorize-text { color: #7FAF1B; }
+.green.colorize, .green .colorize {
+	border-color: #D3EAB3;
+	background: #7FAF1B;
+	background: linear-gradient(to bottom, #91C940, #7FAF1B);
+}
+.purple .colorize-text { color: #853E5E; }
+.purple.colorize, .purple .colorize {
+	border-color: #DEC2CF;
+	background: #853E5E;
+	background: linear-gradient(to bottom, #A15076, #853E5E);
+}
+.yellow .colorize-text { color: #F8CA00; }
+.yellow.colorize, .yellow .colorize {
+	border-color: #FFF0B3;
+	background: #F8CA00;
+	background: linear-gradient(to bottom, #FFDA40, #F8CA00);
+}
+.pink .colorize-text { color: #FF6666; }
+.pink.colorize, .pink .colorize {
+	border-color: #FFCACE;
+	background: #FF6666;
+	background: linear-gradient(to bottom, #FF707D, #FF6666);
+}

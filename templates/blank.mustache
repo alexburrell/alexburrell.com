@@ -1,0 +1,16 @@
+<html>
+	<head>
+		<title>{{title}} | alexburrell.com</title>
+		{{> templates/files}}
+	</head>
+
+	<body>
+		{{> templates/nav}}
+
+		<div class="content page {{escapedtitle}}">
+			{{{content}}}
+		</div>
+
+		{{> templates/footer}}
+	</body>
+</html>
