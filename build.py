@@ -108,13 +108,14 @@ class Sprints:
 								sprint.add_details(s.split('.')[0], opened_file.read())
 
 		self.json['sprints'] = sorted(self.json['sprints'], cmp=self.sort_by_date)
+		sprint_count = len(self.json['sprints'])
 		for index, sprint in enumerate(self.json['sprints']):
 			sprint['index'] = index
 			if index == 0:
 				sprint['iscurrent'] = True
 			if index == 1:
 				sprint['islastcompleted'] = True
-			sprint['color'] = colors[index % len(colors)]
+			sprint['color'] = colors[(sprint_count - index) % len(colors)]
 
 
 	def process_future_sprints(self, path):

@@ -1,6 +1,6 @@
 body {
 	font-family: 'Average Sans', sans-serif;
-	margin: 10px;
+	margin: 10px 10px 60px 10px;
 	color: #333;
 }
 
@@ -66,7 +66,7 @@ pre {
 .uppercase { text-transform: uppercase; }
 .serif { font-family: 'Quando', serif; }
 .sans-serif { font-family: 'Average Sans', sans-serif; }
-.really-small { font-size: 0.6em; }
+.really-small { font-size: 0.8em; }
 .small { font-size: 0.9em; }
 .medium, h2 { font-size: 1.3em; }
 .large, h1 { font-size: 1.7em; }
@@ -121,13 +121,14 @@ nav {
 	margin-top: 20px;
 	width: 60px;
 	display: inline;
+	transition: all 0.5s ease;
 }
 
 .logo-fun #logo-smile {
 	width: 60px;
 	position: absolute;
-	left: 98px;
-	top: 118px;
+	left: 105px;
+	top: 112px;
 }
 
 .nav-links {
@@ -155,10 +156,21 @@ nav {
 	}
 }
 
+.spin {
+	-webkit-transform: rotateZ(360deg);
+}
+
+.squish {
+	-webkit-transform: scaleY(0.6);
+}
+
 
 /* CONTENT */
 @media only screen and (min-device-width: 480px) {
-	.content { margin-left: 250px; }
+	.content {
+		margin-left: 250px;
+		min-width: 360px;
+	}
 	.page {
 		padding: 20px 0;
 		margin-left: 280px;
@@ -200,6 +212,7 @@ blockquote {
 .section .foreground {
 	position: relative;
 	z-index: 1;
+	-webkit-backface-visibility: hidden;
 }
 
 .sprint-details .header {
@@ -214,17 +227,33 @@ blockquote {
 
 
 /* FOOTER */
-.footer {}
+.footer {
+	position: fixed;
+	bottom: 0;
+	background: #FFF;
+	width: 100%;
+	z-index: 1000;
+	margin-left: -10px;
+	box-shadow: 0 0 5px #000;
+}
+
+.footer ul {
+	margin: 10px 0 5px 0;
+}
+
+.footer .item + .item {
+	margin-left: 20px;
+}
 
 
 /* CALENDAR */
 .calendar {
-	min-width: 350px;
+	min-width: 360px;
 }
 
 .calendar .date {
 	width: 13%;
-	height: 50px;
+	height: 75px;
 	margin: 1px 0 0 -3px;
 	border: solid 2px;
 	overflow: hidden;
@@ -249,13 +278,17 @@ blockquote {
 .calendar .date-background {
 	height: 100%;
 	width: 100%;
-	text-align: center;
-	font-size: 75px;
-	line-height: 45px;
+	font-size: 16px;
 	font-weight: bold;
 	text-shadow: none;
-	opacity: 0.3;
+	opacity: 0.5;
 	position: absolute;
+	padding-left: 5px;
+	z-index: 500;
+}
+
+.calendar .date-background:hover {
+	text-decoration: none;
 }
 
 .calendar div.date-background:hover {
@@ -275,7 +308,8 @@ blockquote {
 	text-align: center;
 	display: inline-block;
 	vertical-align: middle;
-	padding: 0 5px;
+	width: 100%;
+	-webkit-backface-visibility: hidden;
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
@@ -285,12 +319,19 @@ blockquote {
 	}
 	.calendar .date {
 		width: 38px;
+		height: 50px;
 	}
 	.calendar .date-background {
-		font-size: 30px;
+		line-height: 50px;
+		text-align: center;
+		width: 29px;
 	}
 	.calendar .date.current .date-background {
 		opacity: 1;
+	}
+	.calendar .test,
+	.calendar .date-foreground {
+		display: none;
 	}
 	.calendar .date.current .date-circle {
 		background-size: 38px;

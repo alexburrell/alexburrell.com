@@ -10,6 +10,6 @@ Well, this site is really a platform for all future sprints, so I'll keep buildi
 - Add a few "Easter Egg" type things
 - Get my build script to under 200 lines (just for fun)
 - Make a few design alterations
-- Put the whole mess on Github
+- <s>Put the whole mess on Github</s> [Check out the source on Github](https://github.com/alexburrell/alexburrell.com)
 
 Little things, that in no way lessen my satisfaction in the last three weeks.

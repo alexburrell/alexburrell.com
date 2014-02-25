@@ -5,36 +5,54 @@
 <link href='http://fonts.googleapis.com/css?family=Average+Sans' rel='stylesheet' type='text/css'>
 
 <script src="/jquery.js"></script>
+
 <script>
-/*
 $(document).ready(function() {
 	var logo = $('#logo img'),
-		specialThings = [$('#logo-smile')];
+		specialThings = [showLogoSmile, spinLogo];
 
 	var timer = current = null;
 	$(logo).hover(function() {
 		timer = setTimeout(function() {
 			var random = Math.floor(Math.random() * specialThings.length);
 			current = specialThings[random];
-			current.show("scale");
+			current();
 		}, 1000);
 	}, function() {
 		if (current) {
 			clearTimeout(timer);
-			current.hide("scale");
+			current();
 		}
 	});
+
+	function showLogoSmile() {
+		$('#logo-smile').toggle("scale");
+	}
+
+	function spinLogo() {
+		var logo = $('.logo');
+		if (logo.hasClass('spin')) {
+			logo.removeClass('spin');
+		} else {
+			logo.addClass('spin');
+		}
+	}
+
+	function squishLogo() {
+		var logo = $('.logo');
+		if (logo.hasClass('squish')) {
+			logo.removeClass('squish');
+		} else {
+			logo.addClass('squish');
+		}
+	}
 });
-*/
-</script>
 
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-47727825-1', 'alexburrell.com');
-  ga('send', 'pageview');
-
+ga('create', 'UA-47727825-1', 'alexburrell.com');
+ga('send', 'pageview');
 </script>
