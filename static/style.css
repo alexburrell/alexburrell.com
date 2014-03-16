@@ -1,3 +1,12 @@
+@font-face {
+  font-family: DoulosSILW;
+  src: url(DoulosSIL-R.woff);
+}
+.ipa {
+	font-family: DoulosSILW, sans-serif;
+	font-size: 1.5em;
+}
+
 body {
 	font-family: 'Average Sans', sans-serif;
 	margin: 10px 10px 60px 10px;
